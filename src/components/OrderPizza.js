@@ -1,30 +1,38 @@
 import React, {useState, useEffect} from "react";
 import Pizza from "./Pizza";
 import {Route, Link} from "react-router-dom";
-import Home from "./Home";
+// import Home from "./Home";
 import * as yup from "yup";
 import axios from "axios";
+import logo from './favicon.jpg';
+// import splash from './Pizza.jpg';
 
 const formSchema = yup.object().shape({
-    fName: yup
+    name: yup
         .string()
         .required("Name is a required field"),
-    // email: yup
-    //     .string()
-    //     .email("Must include a valid email")
-    //     .required("Email Required"),
-    pizzaSize: yup
+    pSize: yup
         .string()
-        .required("Please choose a size "),
-    // comments: yup
-    //     .string()
-    //     .required("C'mon! Tell us a secret!"),
-    // tos: yup
-    //     .boolean()
-    //     .oneOf([true], "You must agree to the Terms Of Service")
+        .required("Please choose size"),
+    pCrust: yup
+        .string()
+        .required("Please choose a crust "),
+    pSause: yup
+        .string()
+        .required("Please choose sause "),
+    xtraCheese: yup
+        .boolean(),
+    mushrooms: yup
+        .boolean(),
+    pepperoni: yup
+        .boolean(),
+    sausage: yup
+        .boolean(),    
+    comments: yup
+        .string(),
 });
 
-const OrderForm = (props) => {
+const OrderForm = () => {
   //FORM STATES  
     const [pState, setPstate] = useState({
         // id: Math.random(),
@@ -32,10 +40,10 @@ const OrderForm = (props) => {
         pSize: "",
         pCrust: "",
         pSause: "",
-        xtraCheese: "",
-        mushrooms: "",
-        pepperoni: "",
-        sausage: "",
+        xtraCheese: false,
+        mushrooms: false,
+        pepperoni: false,
+        sausage: false,
         comments: "",
     })
 
@@ -63,15 +71,14 @@ const OrderForm = (props) => {
 
 // VALIDATION
     const validate = e => {
-        let value =
-        e.target.type === "checkbox" ? e.target.checked : e.target.value;
+        let value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
         yup
             .reach(formSchema, e.target.name)
             .validate(e.target.value)
             .then( valid => {
                 setErrorState({
                     ...errorState,
-                    [e.target.name]: ""
+                    [e.target.name]: []
             });
         })
             .catch( err => {
@@ -85,11 +92,11 @@ const OrderForm = (props) => {
 
 // INPUTCHANGE FUNCTION
     const inputChange = e => {
-        e.persists();
+        e.persist();
         validate(e);
         let value = 
-        e.target.type === "checkbox" ? e.target.checkbox : e.target.value
-        setPstate({...pState, [e.target.name]: value });
+        e.target.type === "checkbox" ? e.target.checkbox : e.target.value;
+        setPstate({ ...pState, [e.target.name]: value });
         };
     
 // FORMSUBMIT FUNCTION
@@ -103,7 +110,11 @@ const OrderForm = (props) => {
         };
 return (
         <div className="container">
-        <Home />
+        {/* <Home /> */}
+         <div className="header"><img src={logo} className="App-logo" alt="logo" /><h1>Hoo's Pizza!</h1> </div>
+        <div className="splash">
+       
+        </div>
         <div className="form">
             <form onSubmit={submitPizza}>
                 <label htmlFor="name">Please tell us your name:
@@ -170,11 +181,7 @@ return (
                         checked={pState.xtraCheese} 
                         onChange={inputChange} 
                         />
-                        {
-                        errorState.xtraCheese.length > 0 ?
-                        (<p className="error">{errorState.xtraCheese}</p>)
-                        : null
-                        }
+                        
                     </label>
                     <label htmlFor="mushrooms">Mushrooms 
                     <input 
@@ -184,11 +191,7 @@ return (
                         checked={pState.mushrooms} 
                         onChange={inputChange} 
                         />
-                        {
-                        errorState.mushrooms.length > 0 ?
-                        (<p className="error">{errorState.mushrooms}</p>)
-                        : null
-                        }
+                       
                     </label>
                     <label htmlFor="pepperoni">Pepperoni
                     <input 
@@ -198,26 +201,17 @@ return (
                         checked={pState.pepperoni} 
                         onChange={inputChange} 
                         />
-                        {
-                        errorState.pepperoni.length > 0 ?
-                        (<p className="error">{errorState.pepperoni}</p>)
-                        : null
-                        }
+                        
                     </label>
                     <label htmlFor="sausage">Sausage 
                     <input 
                         type="checkbox" 
-                        name="sausauge" 
-                        id="sausauge" 
-                        checked={pState.sausauge} 
+                        name="sausage" 
+                        id="sausage" 
+                        checked={pState.sausage} 
                         onChange={inputChange} 
                         />
-                        {
-                        errorState.sausauge.length > 0 ?
-                        (<p className="error">{errorState.sausauge}</p>)
-                        : null
-                        }
-                    </label>
+                     </label>
                 <label htmlFor="textarea">Anything else you would like to add?
                     <textarea 
                         name="comments" 
@@ -232,11 +226,14 @@ return (
                         : null
                         }
                         </label>
-
-
-
-
+                <button disabled={buttonDisabled}>Submit</button>
             </form>
+        <li>
+            <Link to="/Pizza">Pizza</Link>
+        </li>
+            <Route path="/Pizza">
+                <Pizza />
+                    </Route>
         </div>
     </div>
 )};

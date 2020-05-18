@@ -7,7 +7,6 @@ import splash from './Pizza.jpg';
 
     return (
     <div>
-    
         <div className="header"><img src={logo} className="App-logo" alt="logo" /><h1>Hoo's Pizza!</h1> </div>
         <div className="splash">
         <img src={splash} className="splash" alt="Hoo's Pizza" />
@@ -17,7 +16,7 @@ import splash from './Pizza.jpg';
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/OrderForm">OrderForm</Link>
+              <Link to="/OrderPizza">OrderForm</Link>
             </li>
             <li>
               <Link to="/Pizza">Pizza</Link>
