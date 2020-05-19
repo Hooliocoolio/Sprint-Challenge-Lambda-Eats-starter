@@ -6,20 +6,22 @@ import splash from './Pizza.jpg';
  const Home = () => {
 
     return (
-    <div>
+    <div className="container">
         <div className="header"><img src={logo} className="App-logo" alt="logo" /><h1>Hoo's Pizza!</h1> </div>
         <div className="splash">
         <img src={splash} className="splash" alt="Hoo's Pizza" />
-        </div><nav>
+        </div>
+          
+        <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/"></Link>
             </li>
             <li>
-              <Link to="/OrderPizza">OrderForm</Link>
+              <Link to="/OrderPizza"><button class="btn">READY TO ORDER</button></Link>
             </li>
             <li>
-              <Link to="/Pizza">Pizza</Link>
+              <Link to="/Pizza"></Link>
             </li>
           </ul>
         </nav>

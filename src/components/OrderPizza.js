@@ -105,7 +105,7 @@ const OrderForm = () => {
         console.log("form submitted!");
         axios
             .post('https://reqres.in/api/users', pState)
-            .then( response => console.log(response))
+            .then( response =>  console.log(response))
             .catch( err => console.log(err));
         };
 return (
@@ -116,9 +116,17 @@ return (
        
         </div>
         <div className="form">
-            <form onSubmit={submitPizza}>
-                <label htmlFor="name">Please tell us your name:
-                    <input
+            <div><form onSubmit={submitPizza}>
+                <table>
+                <thead></thead>
+                <tbody>
+                
+                
+                    <tr>
+                     <td>Name:</td>
+                        <td>
+                        <label htmlFor="name">Please tell us your name:
+                        <input
                         type="text"
                         name="name"
                         id="name"
@@ -126,10 +134,10 @@ return (
                         onChange={inputChange}
                         />
                     </label>
-        
-        <div><h2>Build your own pizza!</h2></div>
-        <div><h5>Costruisci la tua pizza!</h5></div> 
-                <label htmlFor="pSize">Seleziona la dimensione
+                    </td></tr><tr>
+                    <td>Pizza Size</td> 
+                    <td>
+                    <label htmlFor="pSize">Seleziona la dimensione
                     <select 
                         name="pSize"
                         id="pSize"
@@ -143,8 +151,9 @@ return (
                         <option value="Large">Grande (large 16")</option>
                         <option value="Huge">Enorme (huge 20")</option>
                     </select>
-                </label>
-                 <label htmlFor="pCrust">Choose Crust
+                </label></td></tr><tr>
+                    <td>Choose Crust</td> 
+                    <td><label htmlFor="pCrust">Choose Crust
                     <select 
                         name="pCrust"
                         id="pCrust"
@@ -157,8 +166,10 @@ return (
                         <option value="deepDish">Deep Dish</option>
                         <option value="thinCrust">Thin Crust</option>
                     </select>
-                </label>
-                  <label htmlFor="pSause">Choose Sause
+                </label></td></tr>
+                        <tr>
+                    <td>Choose Sause</td>
+                    <td><label htmlFor="pSause">Choose Sause
                     <select 
                         name="pSause"
                         id="pSause"
@@ -172,26 +183,26 @@ return (
                         <option value="Garlic & Butter Sauce">Garlic & Butter Sauce</option>
                         <option value="Pesto-Basil Sauce">Pesto-Basil Sauce</option>
                     </select>
-                </label>
-                <label htmlFor="xtraCheese">Xtra Cheese 
-                    <input 
+                </label></td></tr><tr>
+                    <td>Toppings</td> 
+                    <td><label htmlFor="xtraCheese">Xtra Cheese 
+                        <input 
                         type="checkbox" 
                         name="xtraCheese" 
                         id="xtraCheese" 
                         checked={pState.xtraCheese} 
                         onChange={inputChange} 
                         />
-                        
-                    </label>
+                        </label>
                     <label htmlFor="mushrooms">Mushrooms 
                     <input 
                         type="checkbox" 
                         name="mushrooms" 
-                        id="mushrooms" 
+                        id="mushrooms"
+                        className="mushrooms"
                         checked={pState.mushrooms} 
                         onChange={inputChange} 
                         />
-                       
                     </label>
                     <label htmlFor="pepperoni">Pepperoni
                     <input 
@@ -201,7 +212,6 @@ return (
                         checked={pState.pepperoni} 
                         onChange={inputChange} 
                         />
-                        
                     </label>
                     <label htmlFor="sausage">Sausage 
                     <input 
@@ -212,7 +222,9 @@ return (
                         onChange={inputChange} 
                         />
                      </label>
-                <label htmlFor="textarea">Anything else you would like to add?
+                     </td></tr><tr>
+                    <td>Extra Instructions:</td>
+                    <td><label htmlFor="textarea">Anything else you would like to add?
                     <textarea 
                         name="comments" 
                         id="comments" 
@@ -220,21 +232,20 @@ return (
                         onChange={inputChange} 
                         >       
                     </textarea>
-                        {
-                        errorState.comments.length > 0 ?
-                        (<p className="error">{errorState.comments}</p>)
-                        : null
-                        }
                         </label>
-                <button disabled={buttonDisabled}>Submit</button>
-            </form>
+                        </td></tr>
+                        <tr><td> <button id="submitBtn"  >Submit</button></td></tr>
+                           </tbody><tfoot></tfoot>
+                         </table></form>
         <li>
             <Link to="/Pizza">Pizza</Link>
         </li>
             <Route path="/Pizza">
                 <Pizza />
                     </Route>
-        </div>
+      
+    </div>
+    </div>
     </div>
 )};
 
