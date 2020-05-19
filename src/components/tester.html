@@ -1,0 +1,226 @@
+<table>
+    <tr>
+    <td>Name:</td> <td><label htmlFor="name">Please tell us your name:
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        value={pState.name}
+                        onChange={inputChange}
+                        />
+                    </label></td>
+    </tr>
+     <tr>
+    <td></td> <td><label htmlFor="pSize">Seleziona la dimensione
+                    <select 
+                        name="pSize"
+                        id="pSize"
+                        value={pState.pSize} 
+                        onChange={inputChange}
+                        >  
+                        <option></option>
+                        <option value="Tiny">Piccolo (Tiny 4")</option>
+                        <option value="Small">Minuscolo (small 8")</option>
+                        <option value="Medium">Mezzano (medium 12")</option>
+                        <option value="Large">Grande (large 16")</option>
+                        <option value="Huge">Enorme (huge 20")</option>
+                    </select>
+                </label></td>
+    </tr>
+     <tr>
+    <td></td> <td><label htmlFor="pCrust">Choose Crust
+                    <select 
+                        name="pCrust"
+                        id="pCrust"
+                        value={pState.pCrust} 
+                        onChange={inputChange}
+                        >  
+                        <option></option>
+                        <option value="handTossed">Hand Tossed</option>
+                        <option value="personalPan">Personal Pan</option>
+                        <option value="deepDish">Deep Dish</option>
+                        <option value="thinCrust">Thin Crust</option>
+                    </select>
+                </label></td>
+    </tr>
+     <tr>
+    <td></td> <td><label htmlFor="pSause">Choose Sause
+                    <select 
+                        name="pSause"
+                        id="pSause"
+                        value={pState.pSause} 
+                        onChange={inputChange}
+                        >  
+                        <option></option>
+                        <option value="No Sauce">No Sauce</option>
+                        <option value="Fresh Garlic Sauce">Fresh Garlic Sauce</option>
+                        <option value="Tuscan Pizza Sauce">Tuscan Pizza Sauce</option>
+                        <option value="Garlic & Butter Sauce">Garlic & Butter Sauce</option>
+                        <option value="Pesto-Basil Sauce">Pesto-Basil Sauce</option>
+                    </select>
+                </label></td>
+    </tr>
+     <tr>
+    <td></td> <td><label htmlFor="xtraCheese">Xtra Cheese 
+                    <input 
+                        type="checkbox" 
+                        name="xtraCheese" 
+                        id="xtraCheese" 
+                        checked={pState.xtraCheese} 
+                        onChange={inputChange} 
+                        />
+                        
+                    </label>
+                    <label htmlFor="mushrooms">Mushrooms 
+                    <input 
+                        type="checkbox" 
+                        name="mushrooms" 
+                        id="mushrooms" 
+                        checked={pState.mushrooms} 
+                        onChange={inputChange} 
+                        />
+                       
+                    </label>
+                    <label htmlFor="pepperoni">Pepperoni
+                    <input 
+                        type="checkbox" 
+                        name="pepperoni" 
+                        id="pepperoni" 
+                        checked={pState.pepperoni} 
+                        onChange={inputChange} 
+                        />
+                        
+                    </label>
+                    <label htmlFor="sausage">Sausage 
+                    <input 
+                        type="checkbox" 
+                        name="sausage" 
+                        id="sausage" 
+                        checked={pState.sausage} 
+                        onChange={inputChange} 
+                        />
+                     </label></td>
+    </tr>
+     <tr>
+    <td></td> <td><label htmlFor="textarea">Anything else you would like to add?
+                    <textarea 
+                        name="comments" 
+                        id="comments" 
+                        value={pState.comments} 
+                        onChange={inputChange} 
+                        >       
+                    </textarea>
+                        </label>
+                        </td>
+    </tr>
+ 
+    </table>
+               <label htmlFor="name">Please tell us your name:
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        value={pState.name}
+                        onChange={inputChange}
+                        />
+                    </label>
+        
+        <div><h2>Build your own pizza!</h2></div>
+        <div><h5>Costruisci la tua pizza!</h5></div> 
+                <label htmlFor="pSize">Seleziona la dimensione
+                    <select 
+                        name="pSize"
+                        id="pSize"
+                        value={pState.pSize} 
+                        onChange={inputChange}
+                        >  
+                        <option></option>
+                        <option value="Tiny">Piccolo (Tiny 4")</option>
+                        <option value="Small">Minuscolo (small 8")</option>
+                        <option value="Medium">Mezzano (medium 12")</option>
+                        <option value="Large">Grande (large 16")</option>
+                        <option value="Huge">Enorme (huge 20")</option>
+                    </select>
+                </label>
+                 <label htmlFor="pCrust">Choose Crust
+                    <select 
+                        name="pCrust"
+                        id="pCrust"
+                        value={pState.pCrust} 
+                        onChange={inputChange}
+                        >  
+                        <option></option>
+                        <option value="handTossed">Hand Tossed</option>
+                        <option value="personalPan">Personal Pan</option>
+                        <option value="deepDish">Deep Dish</option>
+                        <option value="thinCrust">Thin Crust</option>
+                    </select>
+                </label>
+                  <label htmlFor="pSause">Choose Sause
+                    <select 
+                        name="pSause"
+                        id="pSause"
+                        value={pState.pSause} 
+                        onChange={inputChange}
+                        >  
+                        <option></option>
+                        <option value="No Sauce">No Sauce</option>
+                        <option value="Fresh Garlic Sauce">Fresh Garlic Sauce</option>
+                        <option value="Tuscan Pizza Sauce">Tuscan Pizza Sauce</option>
+                        <option value="Garlic & Butter Sauce">Garlic & Butter Sauce</option>
+                        <option value="Pesto-Basil Sauce">Pesto-Basil Sauce</option>
+                    </select>
+                </label>
+                <label htmlFor="xtraCheese">Xtra Cheese 
+                    <input 
+                        type="checkbox" 
+                        name="xtraCheese" 
+                        id="xtraCheese" 
+                        checked={pState.xtraCheese} 
+                        onChange={inputChange} 
+                        />
+                        
+                    </label>
+                    <label htmlFor="mushrooms">Mushrooms 
+                    <input 
+                        type="checkbox" 
+                        name="mushrooms" 
+                        id="mushrooms" 
+                        checked={pState.mushrooms} 
+                        onChange={inputChange} 
+                        />
+                       
+                    </label>
+                    <label htmlFor="pepperoni">Pepperoni
+                    <input 
+                        type="checkbox" 
+                        name="pepperoni" 
+                        id="pepperoni" 
+                        checked={pState.pepperoni} 
+                        onChange={inputChange} 
+                        />
+                        
+                    </label>
+                    <label htmlFor="sausage">Sausage 
+                    <input 
+                        type="checkbox" 
+                        name="sausage" 
+                        id="sausage" 
+                        checked={pState.sausage} 
+                        onChange={inputChange} 
+                        />
+                     </label>
+                <label htmlFor="textarea">Anything else you would like to add?
+                    <textarea 
+                        name="comments" 
+                        id="comments" 
+                        value={pState.comments} 
+                        onChange={inputChange} 
+                        >       
+                    </textarea>
+                        {
+                        errorState.comments.length > 0 ?
+                        (<p className="error">{errorState.comments}</p>)
+                        : null
+                        }
+                        </label>
